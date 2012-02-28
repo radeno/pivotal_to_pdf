@@ -16,10 +16,10 @@ module PivotalToPdf
     def write_to(destination)
       Prawn::Document.generate("#{destination}.pdf",
                                :page_layout => :landscape,
-                               :margin      => [25, 25, 50, 25],
-                               :page_size   => [302, 432]) do |pdf|
+                               :margin      => [10, 10, 10, 10],
+                               :page_size   => 'A4') do |pdf|
 
-        # pdf.font "#{Prawn::BASEDIR}/data/fonts/DejaVuSans.ttf"
+        pdf.font "../../assets/fonts/DejaVuSans.ttf"
         # pdf.start_new_page
 
         stories.each_with_index do |story, index|
@@ -39,7 +39,7 @@ module PivotalToPdf
             pdf.fill_color "000000"
           end
           pdf.line(pdf.bounds.bottom_left, pdf.bounds.bottom_right)
-          pdf.stroke_bounds 
+          pdf.stroke_bounds
 
           pdf.text_box story.points, :size => 12, :at => [12, 50], :width => width-18 unless story.points.nil?
           pdf.text_box "Owner: " + (story.respond_to?(:owned_by) ? story.owned_by : "None"),
