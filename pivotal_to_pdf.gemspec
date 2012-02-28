@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
   s.author         = "Yi Wen"
-  s.add_runtime_dependency(%q<activeresource>, ["3.0.9"])
-  s.add_runtime_dependency(%q<prawn>, ["0.12.0"])
+  s.add_runtime_dependency(%q<activeresource>, [">= 3.0.9"])
+  s.add_runtime_dependency(%q<prawn>, [">= 0.12.0"])
   s.add_runtime_dependency(%q<rainbow>, [">= 0"])
   s.add_runtime_dependency(%q<thor>, [">= 0"])
   s.homepage = "https://github.com/ywen/pivotal_to_pdf"
