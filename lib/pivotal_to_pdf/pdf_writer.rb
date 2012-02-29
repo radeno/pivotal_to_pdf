@@ -20,9 +20,10 @@ module PivotalToPdf
                                :page_size   => [302, 432]) do |pdf|
 
         pdf.font_families.update("DejaVu Sans" => {
-          :normal => "#{Dir.pwd}/assets/fonts/DejaVuSans.ttf",
-          :italic => "#{Dir.pwd}/assets/fonts/DejaVuSans-Oblique.ttf",
-          :bold   => "#{Dir.pwd}/assets/fonts/DejaVuSans-Bold.ttf",
+          :normal       => "#{Dir.pwd}/assets/fonts/DejaVuSans.ttf",
+          :italic       => "#{Dir.pwd}/assets/fonts/DejaVuSans-Oblique.ttf",
+          :bold         => "#{Dir.pwd}/assets/fonts/DejaVuSans-Bold.ttf",
+          :bold_italic  => "#{Dir.pwd}/assets/fonts/DejaVuSans-BoldOblique.ttf",
         })
         pdf.font "DejaVu Sans"
         # pdf.start_new_page
