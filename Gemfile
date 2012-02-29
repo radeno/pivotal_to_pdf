@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 gem 'rainbow'
 gem 'activeresource', ">= 3.0.9"
-gem 'prawn', '>= 1.0.0.rc1'
+gem 'prawn'
 gem 'thor'
 group :test do
   gem 'rspec'
