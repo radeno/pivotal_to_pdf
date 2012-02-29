@@ -17,9 +17,14 @@ module PivotalToPdf
       Prawn::Document.generate("#{destination}.pdf",
                                :page_layout => :landscape,
                                :margin      => [10, 10, 10, 10],
-                               :page_size   => 'A4') do |pdf|
+                               :page_size   => [302, 432]) do |pdf|
 
-        pdf.font "../../assets/fonts/DejaVuSans.ttf"
+        pdf.font_families.update("DejaVu Sans" => {
+          :normal => "#{Dir.pwd}/assets/fonts/DejaVuSans.ttf",
+          :italic => "#{Dir.pwd}/assets/fonts/DejaVuSans-Oblique.ttf",
+          :bold   => "#{Dir.pwd}/assets/fonts/DejaVuSans-Bold.ttf",
+        })
+        pdf.font "DejaVu Sans"
         # pdf.start_new_page
 
         stories.each_with_index do |story, index|
@@ -46,7 +51,7 @@ module PivotalToPdf
             :size => 8, :at => [12, 18], :width => width-18
 
           pdf.fill_color "999999"
-          pdf.text_box story.story_type.capitalize,  :size => 8,  :align => :right, :at => [12, 18], :width => width-18
+          pdf.text_box story.story_type.capitalize, :size => 8,  :align => :right, :at => [12, 18], :width => width-18
           pdf.fill_color "000000"
           pdf.start_new_page unless index == stories.size - 1
         end
